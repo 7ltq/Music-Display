@@ -44,6 +44,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: MusicDisplay-Windows
-          path: build/libs/Musicdisplay.jar
+          path: build/libs/*.jar
           if-no-files-found: error
 
