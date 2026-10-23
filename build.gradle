@@ -1,0 +1,39 @@
+plugins { id 'net.fabricmc.fabric-loom' version '1.18-SNAPSHOT' }
+version = project.mod_version
+group = 'de.dualhud'
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.fabricmc.net/' }
+    maven { url = 'https://maven.terraformersmc.com/releases/' }
+
+}
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    compileOnly "com.terraformersmc:modmenu:21.0.0"
+    compileOnly files("libs/walksylib-compile-api.jar")
+    implementation 'net.java.dev.jna:jna:5.17.0'
+    include 'net.java.dev.jna:jna:5.17.0'
+    implementation 'net.java.dev.jna:jna-platform:5.17.0'
+    include 'net.java.dev.jna:jna-platform:5.17.0'
+
+
+}
+processResources {
+    inputs.property 'version',project.version
+    filesMatching('fabric.mod.json') { expand 'version':project.version }
+}
+tasks.withType(JavaCompile).configureEach { options.release = 25 }
+java { toolchain.languageVersion = JavaLanguageVersion.of(25); withSourcesJar() }
+
+tasks.named('processResources') {
+    from('WindowsMediaBridge/bin/Release/net8.0-windows10.0.19041.0/win-x64/publish/WindowsMediaBridge.exe') {
+        into 'dualmusichud/native'
+    }
+
+}
+
+tasks.matching { it.name == 'remapJar' }.configureEach {
+    archiveFileName = 'Musicdisplay.jar'
+}

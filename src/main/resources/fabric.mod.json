@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "dualmusichud",
+  "version": "${version}",
+  "name": "Music Display",
+  "description": "Music Display: customizable in-game music HUD and synchronized lyrics. 7ltq x codex.",
+  "environment": "client",
+  "license": "GPL-3.0-only",
+  "entrypoints": {
+    "client": [
+      "de.dualhud.DualMusicHud"
+    ],
+    "modmenu": [
+      "de.dualhud.DualMusicModMenu"
+    ],
+    "walksylib": [
+      "de.dualhud.WalksyMusicConfig"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "walksylib": "*"
+  },
+  "suggests": {
+    "modmenu": "*"
+  },
+  "authors": [
+    "7ltq x codex"
+  ],
+  "icon": "assets/dualmusichud/icon.png"
+}
