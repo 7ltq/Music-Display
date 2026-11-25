@@ -1,4 +1,4 @@
-# Music Display 🎵
+# Music Display 
 
 **A modern, client-side music HUD for Minecraft with karaoke lyrics, in-world lyrics, and Apple Music-inspired visuals.**
 
